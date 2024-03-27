@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Emanuel
+apellido:Mendoza
 ---
 TP: IF_Iluminacion
 ---
@@ -43,9 +43,98 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())                        #cantidad = int(cantidad) <--- parseo
+        precio = 800
+
+        precio_cantidad = precio * cantidad
+
+        if cantidad > 5:
+
+            descuento = 50 / 100
+            descuento_p =  descuento * precio_cantidad
+            precio_descuento = precio_cantidad -  descuento_p
+            
+            if precio_descuento >= 4000:
+                descuento = 5 / 100
+                descuento_p =  descuento * precio_descuento
+                precio_descuento_a = precio_descuento -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento_a)
+                alert("", msg)
+
+            else:
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
         
-    
+        elif cantidad == 5 :
+            
+            if marca == "ArgentinaLuz":
+
+                descuento = 40 / 100
+                descuento_p =  descuento * precio_cantidad
+                precio_descuento = precio_cantidad -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
+
+            else:
+                descuento = 30 / 100
+                descuento_p =  descuento * precio_cantidad
+                precio_descuento = precio_cantidad -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
+        
+        elif cantidad == 4:
+
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento = 25 / 100
+                descuento_p =  descuento * precio_cantidad
+                precio_descuento = precio_cantidad -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
+
+            else:
+                descuento = 20 / 100
+                descuento_p =  descuento * precio_cantidad
+                precio_descuento = precio_cantidad -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
+        
+        elif cantidad == 3:
+                
+            if marca == "ArgentinaLuz":
+                descuento = 15 / 100
+                descuento_p =  descuento * precio_cantidad
+                precio_descuento = precio_cantidad -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
+
+            elif marca == "FelipeLamparas":
+                descuento = 10 / 100
+                descuento_p =  descuento * precio_cantidad
+                precio_descuento = precio_cantidad -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
+
+            else:
+                descuento = 5 / 100
+                descuento_p =  descuento * precio_cantidad
+                precio_descuento = precio_cantidad -  descuento_p
+
+                msg = "usted va a pagar ${} pesos".format(precio_descuento)
+                alert("", msg)
+
+        else:
+            msg = "usted va a pagar ${} pesos".format(precio_cantidad)
+            alert("", msg)
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

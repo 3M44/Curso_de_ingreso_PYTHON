@@ -7,8 +7,8 @@ import random
 
 
 '''
-nombre:
-apellido:
+nombre:Emanuel 
+apellido:Mendoza
 ---
 Ejercicio: for_01
 ---
@@ -28,9 +28,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
-       
-            
+        for i in range(1,6):
+            alert("", i)
+
 
 if __name__ == "__main__":
     app = App()

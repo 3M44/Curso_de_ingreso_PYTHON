@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Emanuel
+apellido:Mendoza
 ---
 Ejercicio: for_09
 ---
@@ -37,8 +37,36 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-                
+        numero_secreto = 50
+
+        for i in range(1,8):
+            numero = int(prompt("","Ingrese un numero"))
+            
+
+            if numero == numero_secreto:
+                break
+
+            elif numero < numero_secreto:
+                alert("","Falta…")
+
+            else:
+                alert("","Se pasó…")
+        
+        if i == 1:
+            alert("","Usted es un psíquico")
+        
+        elif i == 2: 
+            alert("","Excelente percepción")
+        
+        elif i == 3:
+            alert("","Esto es suerte")
+        
+        elif i == 4 or i == 5:
+            alert("","Excelente técnica")
+        
+        else:
+            alert("","Perdiste, suerte para la próxima")
+
 
     
 if __name__ == "__main__":

@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Emanuel
+apellido:Mendoza
 ---
 TP: ES_Facturaciones
 ---
@@ -41,7 +41,7 @@ class App(customtkinter.CTk):
         
         self.txt_importe_3 = customtkinter.CTkEntry(master=self)
         self.txt_importe_3.grid(row=2, column=1)
-       
+        
         self.btn_total = customtkinter.CTkButton(master=self, text="TOTAL", command=self.btn_total_on_click)
         self.btn_total.grid(row=3, pady=10, columnspan=2, sticky="nsew")
         
@@ -52,13 +52,47 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        precio_a = float(self.txt_importe_1.get())
+        precio_b = float(self.txt_importe_2.get())
+        precio_c = float(self.txt_importe_3.get())
+
+        precio_total = precio_a + precio_b + precio_c
+
+        precio_final = "el precio final va a ser de: {}".format(precio_total)
+
+        alert("", precio_final)
 
     def btn_promedio_on_click(self):
-        pass
+        precio_a = float(self.txt_importe_1.get())
+        precio_b = float(self.txt_importe_2.get())
+        precio_c = float(self.txt_importe_3.get())
+
+        num = 3
+
+        precio_mitad= precio_a + precio_b + precio_c
+        precio_total= precio_mitad / 3
+
+        precio_final = "el promedio final va a ser de: {}".format(precio_total)
+
+        alert("", precio_final)
+
 
     def btn_total_iva_on_click(self):
-        pass      
+        precio_a = float(self.txt_importe_1.get())
+        precio_b = float(self.txt_importe_2.get())
+        precio_c = float(self.txt_importe_3.get())
+
+        num = 100
+        num_b = 120
+
+        precio_suma= precio_a + precio_b + precio_c
+        precio_divide=  precio_suma / num 
+        precio_total = precio_divide * num_b
+
+
+        precio_final = "el precio final despues del IVA va a ser de: {}".format(precio_total)
+
+        alert("", precio_final)
     
 if __name__ == "__main__":
     app = App()

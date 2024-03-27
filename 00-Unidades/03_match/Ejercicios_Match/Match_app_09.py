@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Emanuel
+apellido:Mendoza
 ---
 Ejercicio: Match_09
 ---
@@ -57,9 +57,74 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-            
+        estacion = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+        precio = 15000
+
+        match estacion:
+            case "Invierno":
+
+                match destino:
+                    case "Bariloche":
+                        aumento_descuento = 20
+                        porcentaje = "aumento"
+
+                    case "Cataratas" | "Cordoba":
+                        aumento_descuento = 10
+                        porcentaje = "descuento"
+
+                    case "Mar del plata":
+                        aumento_descuento = 20
+                        porcentaje = "descuento"
+
+            case "Verano":
+
+                match destino:
+                    case "Bariloche":
+                        aumento_descuento = 20
+                        porcentaje = "descuento"
+
+                    case "Cataratas" | "Cordoba":
+                        aumento_descuento = 10
+                        porcentaje = "aumento"
+
+                    case "Mar del plata":
+                        aumento_descuento = 20
+                        porcentaje = "aumento"
+
+            case "Primavera" | "Otoño":
+
+                match destino:
+                    case "Bariloche":
+                        aumento_descuento = 10
+                        porcentaje = "aumento"
+
+                    case "Cataratas":
+                        aumento_descuento = 10
+                        porcentaje = "aumento"
+
+                    case "Cordoba":
+                        aumento_descuento = 0
+                        porcentaje = "aumento"
+
+                    case "Mar del plata":
+                        aumento_descuento = 10
+                        porcentaje = "aumento"
     
+        precio_porcentaje = (precio * aumento_descuento)/100
+        
+        match porcentaje:
+            case "aumento":
+                total = precio + precio_porcentaje
+            
+            case "descuento":
+                total = precio - precio_porcentaje
+
+        alert("",total)
+
+
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

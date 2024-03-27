@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Emanuel
+apellido:Mendoza
 ---
 Ejercicio: entrada_salida_09bis
 ---
@@ -28,7 +28,7 @@ class App(customtkinter.CTk):
         self.txt_sueldo = customtkinter.CTkEntry(master=self)
         self.txt_sueldo.grid(row=0, column=1)
         
-        self.label2 = customtkinter.CTkLabel(master=self, text="% de Incremento")
+        self.label2 = customtkinter.CTkLabel(master=self, text="de Incremento")
         self.label2.grid(row=1, column=0, padx=20, pady=10)
         
         self.txt_incremento = customtkinter.CTkEntry(master=self)
@@ -39,10 +39,23 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        sueldo = float(self.txt_sueldo.get())
+        incremento = float(self.txt_incremento.get())
+
+        num = 100
+
+        sueldo_division  = sueldo / num
+        sueldo_multiplicado  = sueldo_division * incremento
+        sueldo_suma = sueldo + sueldo_multiplicado
         
+        sueldo_final = "El importe va a ser de: {}".format(sueldo_suma)
+
+        alert("", sueldo_final)
     
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+    #No termine error
